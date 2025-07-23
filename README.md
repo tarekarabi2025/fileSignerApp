@@ -1,31 +1,70 @@
-# Getting Started
+# 📁 File Signer App
 
-### Reference Documentation
-For further reference, please consider the following sections:
+A Spring Boot application to securely sign and verify files using RSA encryption.  
+It supports file upload, signature verification, and RSA key pair generation – all from a clean web interface.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.5.3/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.5.3/maven-plugin/build-image.html)
-* [Spring Data JDBC](https://docs.spring.io/spring-boot/3.5.3/reference/data/sql.html#data.sql.jdbc)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/3.5.3/reference/using/devtools.html)
-* [Thymeleaf](https://docs.spring.io/spring-boot/3.5.3/reference/web/servlet.html#web.servlet.spring-mvc.template-engines)
-* [Spring Web](https://docs.spring.io/spring-boot/3.5.3/reference/web/servlet.html)
+---
 
-### Guides
-The following guides illustrate how to use some features concretely:
+## 📄 Project Overview
 
-* [Using Spring Data JDBC](https://github.com/spring-projects/spring-data-examples/tree/master/jdbc/basics)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+**File Signer App** is a web-based tool that allows users to:
 
-### Maven Parent overrides
+- ✅ Upload a file and digitally sign it using an RSA private key  
+- ✅ Verify if a file matches its signature using the public key  
+- ✅ Generate RSA public/private key pairs  
+- ✅ View, download, and delete signed files  
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+---
 
-new
+## 🚀 Features
+
+- **File Signing** – Secure digital signing with SHA256withRSA
+- **Signature Verification** – Validates uploaded files and signatures
+- **Key Generation** – RSA 2048-bit key pair zipped and downloaded
+- **History Management** – See uploaded/signed files with download and delete options
+- **Modern UI** – Thymeleaf + Bootstrap for responsive design
+- **Toast Alerts** – Dynamic success/error messages via Flash Attributes
+
+---
+
+## ⚙️ Technologies Used
+
+| Layer         | Technology             |
+|--------------|------------------------|
+| Backend       | Spring Boot (Java 17+) |
+| Frontend      | Thymeleaf, Bootstrap 5 |
+| Database      | MySQL or H2 (JDBC)     |
+| Build Tool    | Maven                  |
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the Project
+
+```bash
+git clone https://github.com/your-username/file-signer-app.git
+cd file-signer-app
+### 2. Set Up the Database (MySQL)
+This app uses MySQL. Run the SQL below to set up the required schema and table.
+
+🗃️ SQL Script
+-- Create the database
+CREATE DATABASE file_signer_db;
+
+-- Use the database
+USE file_signer_db;
+
+-- Create the table
+CREATE TABLE sign_process (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    file_name VARCHAR(255),
+    private_key_name VARCHAR(255),
+    public_key_name VARCHAR(255),
+    sign_name VARCHAR(255),
+    file_data BLOB,
+    private_key_data BLOB,
+    public_key_data BLOB,
+    signature BLOB
+);
+
