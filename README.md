@@ -1,12 +1,12 @@
 # 📁 File Signer App
 
-A Spring Boot application to securely sign and verify files using RSA encryption.  
+A Spring Boot application to sign and verify files using RSA encryption.  
 It supports file upload, signature verification, and RSA key pair generation – all from a clean web interface.
 
-🔒 File Upload & Signing
+## 🔒 File Upload & Signing
 ![📄 Upload & Sign Page](images/pic1.png)
 
-✅ Signature Verification
+## ✅ Signature Verification
 ![✅ Signature Verification Result](images/pic2.png)
 
 ---
