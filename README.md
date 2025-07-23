@@ -42,11 +42,10 @@ It supports file upload, signature verification, and RSA key pair generation –
 
 ### 1. Clone the Project
 
-``bash
+```bash
 git clone https://github.com/your-username/file-signer-app.git
 cd file-signer-app
-### 2. Set Up the Database (MySQL)
-``bash
+
 This app uses MySQL. Run the SQL below to set up the required schema and table.
 
 🗃️ SQL Script
